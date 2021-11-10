@@ -6,7 +6,7 @@ from PIL import Image as im
 
 height = 128
 width = 128
-number_of_agents = 100
+number_of_agents = 200
 step_size = 2
 simulation_length = 10000
 mutation_probability = 0.6
@@ -81,7 +81,6 @@ def draw_agent(agent, image):
     return image
 
 
-# define a main function
 def main():
     agents = []
     for agent_number in range(number_of_agents):
@@ -93,7 +92,7 @@ def main():
         for agent in agents:
             agent.move(raw_image_array)
             raw_image_array = draw_agent(agent, raw_image_array)
-        raw_image_array = ndimage.gaussian_filter(raw_image_array, sigma=0.25)
+        raw_image_array = ndimage.gaussian_filter(raw_image_array, sigma=0.5)
 
 
     # creating image object of above array
